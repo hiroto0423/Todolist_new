@@ -15,7 +15,15 @@ use App\Models\Todo;
 |
 */
 
-Route::get('/', [TodoController::class,'index']);
+Route::get('/', [TodoController::class,'index'])->middleware('auth');
 Route::post('/', [TodoController::class,'create']);
 Route::put('/{todo}', [TodoController::class, 'update']);
 Route::delete('/{todo}',[TodoController::class, 'delete']);
+
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

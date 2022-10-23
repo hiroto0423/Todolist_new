@@ -11,6 +11,13 @@
 <body>
   <div class="card">
     <h1 class="card__title">Todo List</h1>
+    @if (Auth::check())
+    <p>「{{$user->name}}」でログイン中</p>
+    @endif
+    <form action="/logout" method="post">
+      @csrf
+      <input type="submit"value="ログアウト">
+    </form>
     @if (count($errors) > 0)
       @foreach ($errors->all() as $error)
         <li class="card__error-li">{{$error}}</li>
