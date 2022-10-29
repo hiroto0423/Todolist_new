@@ -16,5 +16,6 @@
 - Laravel　8.x
 
 ## ER図
-![ER](https://user-images.githubusercontent.com/98827504/198816907-c481453b-0b52-4554-a7dd-5864a73b38b1.png)
+
+![ER](https://user-images.githubusercontent.com/98827504/198817887-54c8858a-0762-4394-a423-84df0336fdd3.png)
 
