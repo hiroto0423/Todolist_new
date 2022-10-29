@@ -2,8 +2,8 @@
 
 @section('content')
   <div class="card">
-    <div class="card__header">
-      <h1 class="card__title">Todo List</h1>
+  <div class="card__header">
+      <h1 class="card__title">タスク検索</h1>
       <div class="card__user">
         @if (Auth::check())
         <p class="card__user-login">「{{$user->name}}」でログイン中</p>
@@ -14,24 +14,22 @@
         </form>
       </div>
     </div>
-    <a href="/todo/find" class="search-todo btn">タスク検索</a>
     @if (count($errors) > 0)
       @foreach ($errors->all() as $error)
         <li class="card__error-li">{{$error}}</li>
       @endforeach
     @endif
-    <div class="card__add">
-      <form action="/"method="post"class="card__add-form">
+    <form action="/todo/search"method="post"class="card__add-form">
         @csrf
         <input type="text"name="content"class="card_add-text">
         <select name="tag_id" id=""class="tag">
+          <option disabled selected value></option>
           @foreach ($tags as $tag)
-          <option  value="{{$tag->id}}">{{$tag->name}}</option>
+          <option value="{{$tag->id}}">{{$tag->name}}</option>
           @endforeach
         </select>
-        <input type="submit"name="submit"value="追加"class="card__add-button btn">
+        <input type="submit"name="submit"value="検索"class="card__add-button btn">
       </form>
-    </div>
     <table class="todo__table">
       <tbody>
         <tr>
@@ -44,12 +42,12 @@
         @foreach ($todos as $todo) 
           <tr>
             <td>{{$todo->created_at}}</td>
-            <form action="/{{$todo->id}}"method="post">
+            <form action="/todo/search/{{$todo->id}}"method="post">
               @csrf
               @method('PUT')
               <td><input type="text"class="todo__table-inp"value="{{$todo->content}}"name="content"></td>
               <td>
-                <select name="tag_id" id=""class="tag">
+                <select name="" id=""class="tag">
                   @foreach ($tags as $tag)
                   <option {{ $todo->selectedTag($tag->id) }} value="{{$tag->id}}">{{$tag->name}}</option>
                   @endforeach
@@ -70,5 +68,6 @@
         @endforeach
       </tbody>
     </table>
+    <a href="/"class="btn back">戻る</a>
   </div>
 @endsection

@@ -14,12 +14,15 @@ use App\Models\Todo;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [TodoController::class,'index'])->middleware('auth');
-Route::post('/', [TodoController::class,'create']);
-Route::put('/{todo}', [TodoController::class, 'update']);
-Route::delete('/{todo}',[TodoController::class, 'delete']);
-
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/', [TodoController::class,'index']);
+    Route::post('/', [TodoController::class,'create']);
+    Route::put('/{todo}', [TodoController::class, 'update']);
+    Route::delete('/{todo}',[TodoController::class, 'delete']);
+    Route::get('/todo/find', [TodoController::class, 'find']);
+    Route::post('/todo/search', [TodoController::class, 'search']);
+    Route::put('/todo/search/{todo}', [TodoController::class, 'search_update']);
+});
 
 
 Route::get('/dashboard', function () {

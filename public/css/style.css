@@ -1,3 +1,14 @@
+/* 共通 */
+.btn {
+  font-size: 12px;
+  background-color: #fff;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
@@ -18,9 +29,41 @@ body {
   background: #fff;
   padding: 30px 30px;
 }
-.card h1 {
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.card__title {
   font-weight: bold;
   font-size: 24px;
+}
+.card__user {
+ display: flex;
+ justify-content: space-between;
+}
+.card__user-login {
+  margin-right: 10px;
+  line-height: 40px;
+}
+.card__user-logout {
+  border: 2px solid red;
+  color: red;
+}
+.card__user-logout:hover {
+  background: red;
+  color:#fff;
+}
+.search-todo {
+    border: 2px solid #cdf119;
+    color: #cdf119;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.search-todo:hover {
+  background: #cdf119;
+  color: #fff;
 }
 .card__add-form {
   display: flex;
@@ -34,18 +77,19 @@ body {
   border: 1px solid #ccc;;
   font-size: 14px;
 }
-.card__add-button {
-
-  text-align: left;
-  border: 2px solid #dc70fa;
-  font-size: 12px;
-  color: #dc70fa;
-  background-color: #fff;
-  font-weight: bold;
-  padding: 8px 16px;
+.tag {
+  padding: 5px;
   border-radius: 5px;
-  cursor: pointer;
-  transition: 0.4s;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+.card__add-button {
+  border: 2px solid #dc70fa;
+  color: #dc70fa;
+}
+.card__add-button:hover {
+  background: #dc70fa;
+  color: #fff;
 }
 .todo__table {
   width: 100%;
@@ -55,10 +99,7 @@ body {
   height: 50px;
   display: flex;
   justify-content: space-between;
-}
-.todo__table td,th {
-  width: fit-content;
-  padding: 0 15px;
+  margin: 0 15px;
 }
 .todo__table-inp {
   padding: 5px;
@@ -70,25 +111,29 @@ body {
 }
 .todo__table-update {
   border: 2px solid #fa9770;
-  font-size: 12px;
   color: #fa9770;
-  background-color: #fff;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.4s;
   outline: none;
+}
+.todo__table-update:hover {
+  background: #fa9770;
+  color: #fff;
 }
 .todo__table-delete {
   border: 2px solid #71fadc;
-  font-size: 12px;
   color: #71fadc;
-  background-color: #fff;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.4s;
-  outline: none;
+}
+.todo__table-delete:hover {
+  background: #71fadc;
+  color: #fff;
+}
+
+.back {
+  border: 2px solid #6d7170;
+    color: #6d7170;
+    background-color: #fff;
+    text-decoration: none;
+}
+.back:hover {
+  background: #6d7170;
+  color: #fff;
 }
