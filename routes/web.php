@@ -19,9 +19,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/', [TodoController::class,'create']);
     Route::put('/{todo}', [TodoController::class, 'update']);
     Route::delete('/{todo}',[TodoController::class, 'delete']);
-    Route::get('/todo/find', [TodoController::class, 'find']);
-    Route::post('/todo/search', [TodoController::class, 'search']);
-    Route::put('/todo/search/{todo}', [TodoController::class, 'search_update']);
+    Route::get('/find', [TodoController::class, 'find']);
+    Route::post('/search', [TodoController::class, 'search']);
+    Route::put('/search/{todo}', [TodoController::class, 'search_update']);
 });
 
 

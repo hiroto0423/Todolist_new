@@ -20,6 +20,7 @@ class TodoController extends Controller
 
     public function create (TodoRequest $request) {
         $new = $request->all();
+        unset($new['_token']);
         $new['user_id'] = Auth::id();
         Todo::create($new);
         return redirect('/');
@@ -29,7 +30,7 @@ class TodoController extends Controller
     public function update (TodoRequest $request,Todo $todo) {
         $form_content = $request->all();
         unset($form_content['_token']);
-        $todo->fill($form_content)->save();
+        $todo->update($form_content);
         return redirect('/');
     }
 
@@ -62,6 +63,6 @@ class TodoController extends Controller
         $form_content = $request->all();
         unset($form_content['_token']);
         $todo->fill($form_content)->save();
-        return redirect('/todo/find');
+        return redirect('/find');
     }
 }

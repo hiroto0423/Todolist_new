@@ -19,7 +19,7 @@
         <li class="card__error-li">{{$error}}</li>
       @endforeach
     @endif
-    <form action="/todo/search"method="post"class="card__add-form">
+    <form action="/search"method="post"class="card__add-form">
         @csrf
         <input type="text"name="content"class="card_add-text">
         <select name="tag_id" id=""class="tag">
@@ -42,12 +42,12 @@
         @foreach ($todos as $todo) 
           <tr>
             <td>{{$todo->created_at}}</td>
-            <form action="/todo/search/{{$todo->id}}"method="post">
+            <form action="search/{{$todo->id}}"method="post">
               @csrf
               @method('PUT')
               <td><input type="text"class="todo__table-inp"value="{{$todo->content}}"name="content"></td>
               <td>
-                <select name="" id=""class="tag">
+                <select name="tag_id" id=""class="tag">
                   @foreach ($tags as $tag)
                   <option {{ $todo->selectedTag($tag->id) }} value="{{$tag->id}}">{{$tag->name}}</option>
                   @endforeach

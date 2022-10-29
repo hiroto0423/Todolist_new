@@ -14,7 +14,7 @@
         </form>
       </div>
     </div>
-    <a href="/todo/find" class="search-todo btn">タスク検索</a>
+    <a href="/find" class="search-todo btn">タスク検索</a>
     @if (count($errors) > 0)
       @foreach ($errors->all() as $error)
         <li class="card__error-li">{{$error}}</li>

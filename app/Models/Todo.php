@@ -20,6 +20,8 @@ class Todo extends Model
     public function selectedTag($tag_id) {
         if ($this->tag_id == $tag_id) {
             return 'selected';
+        }else {
+            return '';
         }
         
     }
