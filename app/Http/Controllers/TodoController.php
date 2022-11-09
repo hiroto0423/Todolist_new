@@ -15,7 +15,6 @@ class TodoController extends Controller
         $user = Auth::user();
         $tags = Tag::all();
         $todos = $user->todos;
-        dd($tags);
         return view('index',['todos'=>$todos, 'user' => $user, 'tags' => $tags]);
     }
 
